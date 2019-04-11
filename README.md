@@ -9,3 +9,9 @@
 ```
 df.info()
 ```
+### Inedices
+Reset index
+```
+df.reset_index(drop=True)
+```
+
