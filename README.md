@@ -9,9 +9,14 @@
 ```
 df.info()
 ```
-### Inedices
+### Indices
 Reset index
 ```
 df.reset_index(drop=True)
 ```
-
+### read_csv
+#### No NAs
+```
+df = pd.read_csv('df.csv', na_filter=False)
+df = pd.read_csv('df.csv', na_values=[], keep_default_na=False)
+```
