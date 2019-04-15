@@ -8,6 +8,7 @@
 ### Summaries
 ```
 df.info()
+df.dtypes
 ```
 ### Indices
 Reset index
@@ -20,3 +21,5 @@ df.reset_index(drop=True)
 df = pd.read_csv('df.csv', na_filter=False)
 df = pd.read_csv('df.csv', na_values=[], keep_default_na=False)
 ```
+
+## PySpark
