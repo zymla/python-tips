@@ -5,6 +5,10 @@
 ```plt.rcParams['figure.figsize'] = [20, 15]```
 
 ## Pandas
+### Format
+```
+pd.set_option('display.float_format', lambda x: '%f' % x)
+```
 ### Summaries
 ```
 df.info()
