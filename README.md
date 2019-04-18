@@ -27,3 +27,13 @@ df = pd.read_csv('df.csv', na_values=[], keep_default_na=False)
 ```
 
 ## PySpark
+### pySpqrk SQL
+`sql()` can only take one single instruction, no `;`
+```
+sqlContext = SQLContext(sc)
+sqlContext.sql('USE database_name')
+```
+### Check what substrings are in a string column
+```
+sqlContext.sql('SELECT string_list FROM data_table').rdd.flatMap(lambda x: x['string_list'].split(' ')).countByValue()
+```
