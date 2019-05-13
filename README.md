@@ -33,6 +33,13 @@ df = pd.read_csv('df.csv', na_values=[], keep_default_na=False)
 sqlContext = SQLContext(sc)
 sqlContext.sql('USE database_name')
 ```
+### Refer to a column with `col()` when chaining
+```
+from pyspark.sql.functions import col
+
+df.filter(col('col_name').isin(['a', 'b']))
+```
+
 ### Check what substrings are in a string column
 ```
 sqlContext.sql('SELECT string_list FROM data_table').rdd.flatMap(lambda x: x['string_list'].split(' ')).countByValue()
