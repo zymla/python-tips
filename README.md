@@ -59,3 +59,14 @@ from pyspark.sql.functions import *
 
 df.withColumn('new_col', coalesce(df['old_col'], lit('some constant value'))
 ```
+### Partition over
+#### Create a Window
+```
+from pyspark.sql.window import Window
+w = Window.partitionBy(df.id).orderBy(df.time)
+```
+#### Use partition
+```
+import pyspark.sql.functions as F
+df = df.withColumn("timeDelta", df.time - F.lag(df.time,1).over(w))
+```
