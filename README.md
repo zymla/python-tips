@@ -40,10 +40,22 @@ from pyspark.sql.functions import col
 df.filter(col('col_name').isin(['a', 'b']))
 ```
 
+### create a udf wrapper and then apply it to the columns
+```
+from pyspark.sql.types import StringType
+from pyspark.sql.functions import udf
+
+def map_func(col1_val, col2_val):
+   return col1_val + '-' + col2_val
+
+df2 = df.withColumn('new_field', udf(map_func, StringType())(df.col1, df.col2))
+```
+
 ### Check what substrings are in a string column
 ```
 sqlContext.sql('SELECT string_list FROM data_table').rdd.flatMap(lambda x: x['string_list'].split(' ')).countByValue()
 ```
+
 ### Add a method to `DataFrame`
 ```
 from pyspark.sql.dataframe import DataFrame
