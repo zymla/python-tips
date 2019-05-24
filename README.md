@@ -82,3 +82,8 @@ w = Window.partitionBy(df.id).orderBy(df.time)
 import pyspark.sql.functions as F
 df = df.withColumn("timeDelta", df.time - F.lag(df.time,1).over(w))
 ```
+### Misc Spark issues
+#### Kerberos shell commands
+- `klist` (to check ticket )
+- `kdestroy` (to destroy ticket)
+- `kinit` (to create new ticket)
