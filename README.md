@@ -65,7 +65,7 @@ def new_method(self, params):
 DataFrame.new_method = new_method
 ```
 
-### Coalesce to constant (replace Null values bya constant)
+### Coalesce to constant (replace Null values by a constant)
 ```
 from pyspark.sql.functions import *
 
