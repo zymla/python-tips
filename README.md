@@ -26,6 +26,18 @@ df = pd.read_csv('df.csv', na_filter=False)
 df = pd.read_csv('df.csv', na_values=[], keep_default_na=False)
 ```
 
+### Mutates
+#### String to `datetime`
+```
+df['datetime'] = pd.to_datetime(df['string_datetime'], errors='coerce')
+```
+
+### Filters
+#### Strings
+```
+df[df["string_column"].str.startswith('some patern', na = False)]
+```
+
 ## PySpark
 ### pySpqrk SQL
 `sql()` can only take one single instruction, no `;`
