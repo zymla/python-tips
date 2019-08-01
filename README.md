@@ -4,6 +4,15 @@
 ### Matplotlib inline image size (in ")
 ```plt.rcParams['figure.figsize'] = [20, 15]```
 
+## JSON
+### Read json files
+```
+with open('./file.json', encoding='UTF8') as json_file:
+    data = json.load(json_file)
+
+data_pd = pd.io.json.json_normalize(data)
+```
+
 ## Pandas
 ### Format
 ```
