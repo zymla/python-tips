@@ -108,3 +108,37 @@ df = df.withColumn("timeDelta", df.time - F.lag(df.time,1).over(w))
 - `klist` (to check ticket )
 - `kdestroy` (to destroy ticket)
 - `kinit` (to create new ticket)
+
+# Command line template with `click`
+```
+import json
+import click
+import time
+
+@click.command()
+@click.option('--input-file', type=click.File('rt'), default='-', show_default=True)
+@click.option('--config-file', type=click.File('rt'), required=True)
+@click.option('--output-file', type=click.File('at'), default='-', show_default=True)
+def my_fun(input_file, config_file, output_file):
+  """Comments"""
+
+  click.echo(time.asctime() + " Reading config file", err=True)
+  config_data = json.load(config_file)
+
+  click.echo(time.asctime() + " Reading input file", err=True)
+  input_data = json.load(input_file)
+
+  click.echo(time.asctime() + " Writing output_file", err=True)
+  output_file.write('[\n')
+  json.dump(input_data[0], output_file)
+  with click.progressbar(input_data, file = click.get_text_stream('stderr')) as bar: 
+    for m in bar:
+      output_file.write(',\n')
+      json.dump(m, output_file)
+  output_file.write(']')
+
+  click.echo(time.asctime() + " Done.", err=True)
+
+if __name__ == '__main__':
+  my_fun()
+```
