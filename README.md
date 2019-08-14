@@ -4,6 +4,12 @@
 ### Matplotlib inline image size (in ")
 ```plt.rcParams['figure.figsize'] = [20, 15]```
 
+## General
+### Is key in dict?
+```
+'key' in {'key': 'value'}
+```
+
 ## Files
 ### String to file handle
 ```
