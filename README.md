@@ -55,10 +55,27 @@ df = pd.read_csv('df.csv', na_values=[], keep_default_na=False)
 ```
 
 ### Mutates
+
+#### Add column total sum by group
+```
+df = df.merge(df.groupby('grouping_var', as_index=False)['nb'].sum().sort_values('nb', ascending = False).rename(columns={'nb': 'total'}))
+```
+
+#### cumsum by group
+```
+df['cumsum']=df.groupby('group_var')['n'].cumsum()
+```
+
 #### String to `datetime`
 ```
 df['datetime'] = pd.to_datetime(df['string_datetime'], errors='coerce')
 ```
+```
+df['datetime'] = df['datetime_string'].map(dateutil.parser.parse)
+df['hour'] = df['datetime'].map(lambda x: x.hour)
+df['doy'] = df['datetime'].map(lambda x: x.dayofyear)
+```
+
 
 ### Filters
 #### Strings
