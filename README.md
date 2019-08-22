@@ -115,6 +115,11 @@ from pyspark.sql.functions import col
 df.filter(col('col_name').isin(['a', 'b']))
 ```
 
+### Rename multiple columns at once
+```
+df.select([col(c).alias(old_name_new_name_dict.get(c, c)) for c in old_name_new_name_dict])
+```
+
 ### create a udf wrapper and then apply it to the columns
 ```
 from pyspark.sql.types import StringType
