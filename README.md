@@ -5,9 +5,27 @@
 ```plt.rcParams['figure.figsize'] = [20, 15]```
 
 ## General
-### Is key in dict?
+### Dictionaries
+#### Is key in dict?
 ```
 'key' in {'key': 'value'}
+```
+#### Create dictionary from two lists
+```
+dict(zip(keys, values))
+```
+### Regex
+#### Keep elements of list matching regex pattern
+```
+list(filter(re.compile('regex_pattern').search, list_of_strings))
+```
+#### Exclude elements of list matching regex pattern
+```
+list(filter(lambda x: re.compile('regex_pattern').search(x) is None, list_of_strings))
+```
+#### Apply replace with regex to list of strings
+```
+list(map(lambda f: re.sub('replace_this', 'with_that', f), list_of_strings))
 ```
 
 ## Files
