@@ -100,6 +100,10 @@ df['doy'] = df['datetime'].map(lambda x: x.dayofyear)
 ```
 df[df["string_column"].str.startswith('some patern', na = False)]
 ```
+## PySpark SQL vs Pandas
+| Pandas                                   | PySpark SQL                                     |
+| ---------------------------------------- | ----------------------------------------------- |
+| df[df['col_a'] in ['val a', 'val b']]    | df.filter(col('col_a').isin(['val a', 'val b']) |
 
 ## PySpark
 ### pySpqrk SQL
