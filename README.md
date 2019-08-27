@@ -172,6 +172,23 @@ df = df.withColumn("timeDelta", df.time - F.lag(df.time,1).over(w))
 - `kdestroy` (to destroy ticket)
 - `kinit` (to create new ticket)
 
+# Misc
+### Get dates of DST switch
+```
+list(
+  map(
+    lambda x: x.isoformat(), 
+    map(
+      datetime.datetime.date, 
+      list(filter(
+        lambda x: (x.year >= 2012) & (x.year <= 2022) & (x.month == 3), 
+        pytz.timezone('Europe/Paris')._utc_transition_times
+      ))
+    )
+  )
+)
+```
+
 # Command line template with `click`
 ```
 import json
