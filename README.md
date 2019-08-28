@@ -73,7 +73,12 @@ df = pd.read_csv('df.csv', na_values=[], keep_default_na=False)
 ```
 
 ### Mutates
-
+#### Chaining method to add a column similar to pySpark's `.withcolumn('col_name', lit('value'))`
+```
+def pd_withcolumn_lit(df, col_name, value):
+    return pd.concat([df, pd.DataFrame({col_name: []})], axis=1).fillna({col_name: value})
+pd.DataFrame.withcolumn_lit = pd_withcolumn_lit
+```
 #### Add column total sum by group
 ```
 df = df.merge(df.groupby('grouping_var', as_index=False)['nb'].sum().sort_values('nb', ascending = False).rename(columns={'nb': 'total'}))
