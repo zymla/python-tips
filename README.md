@@ -14,6 +14,12 @@
 ```
 dict(zip(keys, values))
 ```
+#### Dictionary of lists to list of dictionaries
+```
+def dictlist2listdict(dl):
+    return [dict(zip(dl, i)) for i in list(zip(*dl.values()))]
+```
+
 ### Regex
 #### Keep elements of list matching regex pattern
 ```
