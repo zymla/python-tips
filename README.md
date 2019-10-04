@@ -5,6 +5,13 @@
 ```plt.rcParams['figure.figsize'] = [20, 15]```
 
 ## General
+### Iterable unpacking
+Will call print with three parameters instead of calling it with one list
+```
+ls = [0, 1, 2]
+print(*ls)
+``` 
+
 ### Dictionaries
 #### Is key in dict?
 ```
