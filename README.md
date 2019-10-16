@@ -88,9 +88,8 @@ df = pd.read_csv('df.csv', na_values=[], keep_default_na=False)
 ### Mutates
 #### Chaining method to add a column similar to pySpark's `.withcolumn('col_name', lit('value'))`
 ```
-def pd_withcolumn_lit(df, col_name, value):
-    return pd.concat([df, pd.DataFrame({col_name: []})], axis=1).fillna({col_name: value})
-pd.DataFrame.withcolumn_lit = pd_withcolumn_lit
+df.assign(new_col='value')
+df.assign(new_col=lambda df: df['old_col']+1)
 ```
 #### Add column total sum by group
 ```
@@ -111,7 +110,10 @@ df['datetime'] = df['datetime_string'].map(dateutil.parser.parse)
 df['hour'] = df['datetime'].map(lambda x: x.hour)
 df['doy'] = df['datetime'].map(lambda x: x.dayofyear)
 ```
-
+#### String to numeric
+```
+pd.to_numeric(df['col'], errors='coerce')
+```
 
 ### Filters
 #### Strings
