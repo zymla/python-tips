@@ -119,6 +119,9 @@ pd.to_numeric(df['col'], errors='coerce')
 #### Strings
 ```
 df[df["string_column"].str.startswith('some patern', na = False)]
+df[df["string_column"].str.contains('some patern', na = True)]
+df[df["string_column"].str.contains('some|patern$', regex = True)]
+df[df["string_column"].str.contains('some|patern$', regex = True, flags=re.IGNORECASE)]
 ```
 ## PySpark SQL vs Pandas
 | Pandas                                   | PySpark SQL                                     |
