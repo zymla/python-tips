@@ -114,7 +114,6 @@ df['doy'] = df['datetime'].map(lambda x: x.dayofyear)
 ```
 pd.to_numeric(df['col'], errors='coerce')
 ```
-
 ### Filters
 #### Strings
 ```
@@ -123,6 +122,14 @@ df[df["string_column"].str.contains('some patern', na = True)]
 df[df["string_column"].str.contains('some|patern$', regex = True)]
 df[df["string_column"].str.contains('some|patern$', regex = True, flags=re.IGNORECASE)]
 ```
+
+### Explode
+**Whatch out** `df.explode` is based on index, therefore it is advisable to `reset_index` before calling it
+```
+df['col_of_list'].explode()
+df.explode('col_of_list')
+```
+
 ## PySpark SQL vs Pandas
 | Pandas                                   | PySpark SQL                                     |
 | ---------------------------------------- | ----------------------------------------------- |
