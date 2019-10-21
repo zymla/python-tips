@@ -257,3 +257,10 @@ def my_fun(input_file, config_file, output_file):
 if __name__ == '__main__':
   my_fun()
 ```
+# Sftp
+```
+import pysftp
+
+with pysftp.Connection(host=hostname, username=username, private_key=pk_path, private_key_pass=getpass.getpass()) as sftp:
+    sftp.get_d(remote_path, local_path)
+```
