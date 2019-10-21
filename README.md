@@ -3,7 +3,11 @@
 ## Jupyter
 ### Matplotlib inline image size (in ")
 ```plt.rcParams['figure.figsize'] = [20, 15]```
-
+### Prompt for password
+```
+import getpass
+password = getpass.getpass()
+```
 ## General
 ### Iterable unpacking
 Will call `print()` with three parameters instead of calling it with one list
