@@ -46,6 +46,10 @@ list(map(lambda f: re.sub('replace_this', 'with_that', f), list_of_strings))
 ```
 
 ## Files
+
+### Touch
+`os.mknod(os.path.join(path, '.done'))`
+
 ### String to file handle
 ```
 io.StringIO('some string')
