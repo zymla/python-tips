@@ -1,6 +1,14 @@
 # python-tips
 
 ## Jupyter
+### Autotime
+```
+!pip install ipython-autotime
+```
+```
+import autotime
+%load_ext autotime
+```
 ### Matplotlib inline image size (in ")
 ```plt.rcParams['figure.figsize'] = [20, 15]```
 ### Prompt for password
