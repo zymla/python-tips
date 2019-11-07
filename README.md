@@ -52,6 +52,10 @@ list(filter(lambda x: re.compile('regex_pattern').search(x) is None, list_of_str
 ```
 list(map(lambda f: re.sub('replace_this', 'with_that', f), list_of_strings))
 ```
+#### Named groups to dict
+```
+re.match(r'^patter(?P<group_a>\d+)_(?P<group2>\w+)', x).groupdict()
+```
 
 ## Files
 
