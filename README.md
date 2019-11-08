@@ -93,6 +93,11 @@ pd.set_option('display.float_format', lambda x: '%f' % x)
 df.info()
 df.dtypes
 ```
+
+### `value_counts()`
+```
+df['col'].value_counts(dropna=False)
+```
 ### Indices
 Reset index
 ```
