@@ -110,6 +110,9 @@ df = pd.read_csv('df.csv', na_filter=False)
 df = pd.read_csv('df.csv', na_values=[], keep_default_na=False)
 ```
 
+### Strip whitespaces on all columns
+`.apply(lambda col: col.str.strip())`
+
 ### Mutates
 #### Chaining method to add a column similar to pySpark's `.withcolumn('col_name', lit('value'))`
 ```
