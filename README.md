@@ -123,7 +123,8 @@ df.assign(new_col=lambda df: df['old_col']+1)
 ```
 df = df.merge(df.groupby('grouping_var', as_index=False)['nb'].sum().sort_values('nb', ascending = False).rename(columns={'nb': 'total'}))
 ```
-
+#### Floor timestamp/datetime
+`df.assign(dt_floored = lambda df: df['dt'].map(lambda ts: ts.floor(freq='30T')))`
 #### cumsum by group
 ```
 df['cumsum']=df.groupby('group_var')['n'].cumsum()
