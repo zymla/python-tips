@@ -289,3 +289,20 @@ import pysftp
 with pysftp.Connection(host=hostname, username=username, private_key=pk_path, private_key_pass=getpass.getpass()) as sftp:
     sftp.get_d(remote_path, local_path)
 ```
+
+# CAN
+## Dealing with CAN message lists / DBC
+### Install / `import`
+```
+!pip install cantools
+```
+```
+import cantools
+```
+### Read DBC
+```
+with open('dbc_file.dbc', 'r') as dbc_file:
+    db = cantools.db.load(dbc_file)
+db_msg_list = list(map(lambda m: m.frame_id, db.messages))
+```
+
