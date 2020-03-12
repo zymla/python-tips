@@ -119,6 +119,17 @@ df = pd.read_csv('df.csv', na_values=[], keep_default_na=False)
 df.assign(new_col='value')
 df.assign(new_col=lambda df: df['old_col']+1)
 ```
+#### Lag/Lead
+Watchout, 1 -> lag, -1 -> lead
+```
+df_lag = df.shift(1)
+col_lag = df['col'].shift(1)
+
+
+df_lead = df.shift(-1)
+col_lead = df['col'].shift(-1)
+
+```
 #### Add column total sum by group
 ```
 df = df.merge(df.groupby('grouping_var', as_index=False)['nb'].sum().sort_values('nb', ascending = False).rename(columns={'nb': 'total'}))
