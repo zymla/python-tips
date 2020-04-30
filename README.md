@@ -1,6 +1,9 @@
 # python-tips
 
 ## Jupyter
+### List kernels
+`jupyter kernelspec list`
+
 ### Autotime
 ```
 !pip install ipython-autotime
