@@ -1,6 +1,14 @@
 # python-tips
 
 ## Jupyter
+### rpy2
+
+```
+import os
+import rpy2
+os.environ['PATH']=os.environ['PATH']+':/usr/local/bin' # might be necessary if R is not in anaconda's path
+%load_ext rpy2.ipython
+```
 ### List kernels
 `jupyter kernelspec list`
 
