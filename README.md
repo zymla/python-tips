@@ -7,6 +7,7 @@ conda install -c conda-forge jupyterlab
 #jupyter labextension install @jupyter-widgets/jupyterlab-manager
 #jupyter labextension install @bokeh/jupyter_bokeh
 jupyter labextension install @jupyterlab/debugger
+conda install xeus-python -c conda-forge
 !pip install ipython-autotime
 ```
 ### rpy2
