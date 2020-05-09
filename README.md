@@ -1,7 +1,23 @@
 # python-tips
 
 ## Jupyter
+
 ### Installation
+#### Xeus-python
+That's a kernel that is compatible with debugging in Jupyterlab
+```
+conda create -n xeus-python
+conda activate xeus-python
+conda install xeus-python notebook -c conda-forge
+conda install -c conda-forge jupyterlab
+conda install -c conda-forge ipywidgets
+conda install bokeh
+jupyter labextension install @jupyter-widgets/jupyterlab-manager
+jupyter labextension install @bokeh/jupyter_bokeh
+```
+
+#### Jupyter-lab
+
 ```
 conda install -c conda-forge jupyterlab
 #jupyter labextension install @jupyter-widgets/jupyterlab-manager
