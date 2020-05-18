@@ -27,7 +27,11 @@ conda install xeus-python -c conda-forge
 !pip install ipython-autotime
 ```
 ### rpy2
-
+Windows 10 install
+```
+set R_HOME=C:\Users\...\AppData\R\R-3.5.0
+pip install rpy2
+```
 ```
 import os
 import rpy2
