@@ -364,3 +364,31 @@ with open('dbc_file.dbc', 'r') as dbc_file:
 db_msg_list = list(map(lambda m: m.frame_id, db.messages))
 ```
 
+# Win32 / Microsoft Office
+## Excel
+```
+import win32com.client as win32
+
+excel = win32.gencache.EnsureDispatch('Excel.Application')
+excel.Visible = True
+
+wb=excel.ActiveWorkbook
+print("Active WB:", wb.Name)
+
+ws=wb.Sheets(1)
+ws.Name
+
+df=pd.DataFrame({
+    'row':     range(2, rmax+1),
+    'col1':    [ws.Cells(x, 1).Value for x in range(2, rmax+1)], 
+    'col4':    [ws.Cells(x, 4).Value for x in range(2, rmax+1)], 
+    'col10':   [ws.Cells(x,10).Value for x in range(2, rmax+1)], 
+    })
+
+for index, row in tqdm(df.iterrows()):
+    ws.Cells(row['row'], 9).Value=row['col1']+row['col4']
+
+excel.Quit()
+```
+
+
