@@ -185,6 +185,8 @@ df = df.merge(df.groupby('grouping_var', as_index=False)['nb'].sum().sort_values
 In case of DST ambiguity, convert to UTC, floor, then back to local TZ
 `df.assign(dt_floored = lambda df: df['dt'].map(lambda ts: ts.floor(freq='30T')))`
 `df.assign(dt_floored = lambda df: df['dt'].dt.floor(freq='30T')`
+#### datetime offset
+`df['dt'] - pd.DateOffset(hours=1)`
 #### Change TZ
 `df['dt'].dt.tz_convert('Europe/Paris')`
 #### cumsum by group
