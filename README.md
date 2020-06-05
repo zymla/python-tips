@@ -183,8 +183,8 @@ df = df.merge(df.groupby('grouping_var', as_index=False)['nb'].sum().sort_values
 ```
 #### Floor timestamp/datetime
 In case of DST ambiguity, convert to UTC, floor, then back to local TZ
-`df.assign(dt_floored = lambda df: df['dt'].map(lambda ts: ts.floor(freq='30T')))`
-`df.assign(dt_floored = lambda df: df['dt'].dt.floor(freq='30T')`
+```df.assign(dt_floored = lambda df: df['dt'].map(lambda ts: ts.floor(freq='30T')))```
+```df.assign(dt_floored = lambda df: df['dt'].dt.floor(freq='30T')```
 #### datetime offset
 `df['dt'] - pd.DateOffset(hours=1)`
 #### Change TZ
@@ -193,7 +193,17 @@ In case of DST ambiguity, convert to UTC, floor, then back to local TZ
 ```
 df['cumsum']=df.groupby('group_var')['n'].cumsum()
 ```
-
+#### Fill date_range gaps, per group
+```
+# fill gaps in time serie
+df.groupby(['group_1', 'group_2'])
+    .apply(
+        lambda df: 
+            df.set_index(['dt_utc'])[['var_1', 'var_2']]
+                .reindex(pd.date_range(df['dt_utc'].min(), df['dt_utc'].max(), freq='T').rename('dt_utc'), fill_value=0)
+    )
+    .reset_index()
+```
 #### String to `datetime`
 ```
 df['datetime'] = pd.to_datetime(df['string_datetime'], errors='coerce')
