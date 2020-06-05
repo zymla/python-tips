@@ -182,7 +182,11 @@ col_lead = df['col'].shift(-1)
 df = df.merge(df.groupby('grouping_var', as_index=False)['nb'].sum().sort_values('nb', ascending = False).rename(columns={'nb': 'total'}))
 ```
 #### Floor timestamp/datetime
+In case of DST ambiguity, convert to UTC, floor, then back to local TZ
 `df.assign(dt_floored = lambda df: df['dt'].map(lambda ts: ts.floor(freq='30T')))`
+`df.assign(dt_floored = lambda df: df['dt'].dt.floor(freq='30T')`
+#### Change TZ
+`df['dt'].dt.tz_convert('Europe/Paris')`
 #### cumsum by group
 ```
 df['cumsum']=df.groupby('group_var')['n'].cumsum()
@@ -191,6 +195,9 @@ df['cumsum']=df.groupby('group_var')['n'].cumsum()
 #### String to `datetime`
 ```
 df['datetime'] = pd.to_datetime(df['string_datetime'], errors='coerce')
+```
+```
+df['datetime'] = df['string_datetime'].astype(pd.DatetimeTZDtype(tz='UTC'))
 ```
 ```
 df['datetime'] = df['datetime_string'].map(dateutil.parser.parse)
