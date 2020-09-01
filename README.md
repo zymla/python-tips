@@ -156,6 +156,11 @@ df.reset_index(drop=True)
 df = pd.read_csv('df.csv', na_filter=False)
 df = pd.read_csv('df.csv', na_values=[], keep_default_na=False)
 ```
+### read_excel
+#### List worksheets
+`pd.ExcelFile('foo.xlsx').sheet_names`
+#### read file
+`pd.read_excel('foo.xlsx', sheet_name='sheet name')`
 
 ### Strip whitespaces on all columns
 `.apply(lambda col: col.str.strip())`
