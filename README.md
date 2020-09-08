@@ -17,6 +17,7 @@ jupyter labextension install @bokeh/jupyter_bokeh
 ```
 
 #### Jupyter-lab
+`pip install --upgrade ipykernel`
 
 ```
 conda install -c conda-forge jupyterlab
