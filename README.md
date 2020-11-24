@@ -27,6 +27,9 @@ jupyter labextension install @jupyterlab/debugger
 conda install xeus-python -c conda-forge
 !pip install ipython-autotime
 ```
+### `nbdime` notebook diff
+`pip install nbdime`
+
 ### rpy2
 Windows 10 install
 ```
