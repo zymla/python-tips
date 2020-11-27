@@ -36,6 +36,12 @@ Windows 10 install
 set R_HOME=C:\Users\...\AppData\R\R-3.5.0
 pip install rpy2
 ```
+MacOS
+```
+import os
+os.environ['R_HOME'] = '/Library/Frameworks/R.framework/Resources'
+!pip install rpy2
+```
 ```
 import os
 import rpy2
