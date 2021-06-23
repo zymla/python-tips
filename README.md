@@ -245,7 +245,7 @@ df[df["string_column"].str.contains('some|patern$', regex = True, flags=re.IGNOR
 ```
 
 ### Explode
-**Whatch out** `df.explode` is based on index, therefore it is advisable to `reset_index` before calling it
+**Watch out** `df.explode` is based on index, therefore it is advisable to `reset_index` before calling it
 ```
 df['col_of_list'].explode()
 df.explode('col_of_list')
