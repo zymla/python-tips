@@ -80,6 +80,10 @@ Will call `print()` with three parameters instead of calling it with one list
 ls = [0, 1, 2]
 print(*ls)
 ``` 
+### List to list of unique element while preserving order
+```
+sorted(set(orig_list), key=orig_list.index)
+```
 
 ### Dictionaries
 #### Is key in dict?
