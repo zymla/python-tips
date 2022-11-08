@@ -341,6 +341,15 @@ list(
 )
 ```
 
+## BigQuery
+### bigquery jupyterlab magics with authentification
+```
+%load_ext google.cloud.bigquery 
+from google.cloud.bigquery import magics
+magics.context.credentials = credentials
+magics.context.project = project_id
+```
+
 # Command line template with `click`
 ```
 import json
