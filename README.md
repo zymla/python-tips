@@ -85,6 +85,18 @@ print(*ls)
 sorted(set(orig_list), key=orig_list.index)
 ```
 
+`itemgetter` and `attrgetter`
+```
+from operator import itemgetter, attrgetter
+
+>>> sorted(student_tuples, key=itemgetter(2))
+[('dave', 'B', 10), ('jane', 'B', 12), ('john', 'A', 15)]
+
+>>> sorted(student_objects, key=attrgetter('age'))
+[('dave', 'B', 10), ('jane', 'B', 12), ('john', 'A', 15)]
+```
+
+
 ### Dictionaries
 #### Is key in dict?
 ```
