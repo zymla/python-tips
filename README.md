@@ -7,6 +7,12 @@ CERT_PATH=$(python -m certifi)
 export SSL_CERT_FILE=${CERT_PATH}
 export REQUESTS_CA_BUNDLE=${CERT_PATH}
 ```
+or for `pipenv` create a `.env` file:
+```
+CERT_PATH=$(python -m certifi)
+SSL_CERT_FILE=${CERT_PATH}
+REQUESTS_CA_BUNDLE=${CERT_PATH}
+```
 
 ## Jupyter
 
