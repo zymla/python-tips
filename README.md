@@ -353,6 +353,7 @@ df = df.withColumn("timeDelta", df.time - F.lag(df.time,1).over(w))
 - `kdestroy` (to destroy ticket)
 - `kinit` (to create new ticket)
 
+
 # Misc
 ### Get dates of DST switch
 ```
