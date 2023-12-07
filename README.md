@@ -19,6 +19,17 @@ or run as any admin user (not root)
 ```
 
 ## Jupyter
+### make a `pipenv` available as kernel for jupyterlab
+```
+mkdir my_virtual_env
+cd my_virtual_env
+pipenv install ipykernel
+pipenv shell
+```
+then your are in your pipenv shell `(my_virtual_env)`:
+```
+python -m ipykernel install --user --name=my_virtual_env
+```
 
 ### Installation
 #### Xeus-python
