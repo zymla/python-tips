@@ -13,6 +13,10 @@ CERT_PATH=$(python -m certifi)
 SSL_CERT_FILE=${CERT_PATH}
 REQUESTS_CA_BUNDLE=${CERT_PATH}
 ```
+or run as any admin user (not root)
+```
+/Applications/Python\ 3.12/Install\ Certificates.command
+```
 
 ## Jupyter
 
