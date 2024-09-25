@@ -103,6 +103,11 @@ import getpass
 password = getpass.getpass()
 ```
 ## General
+### Date/time
+#### `utcnow()` replacement
+```
+datetime.datetime.now(datetime.UTC)
+```
 ### Iterable unpacking
 Will call `print()` with three parameters instead of calling it with one list
 ```
