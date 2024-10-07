@@ -392,6 +392,11 @@ list(
 ```
 
 # GCP
+## Google Drive
+### Install Google Drive library
+```
+pip install --upgrade google-api-python-client google-auth-httplib2 google-auth-oauthlib
+```
 ## GCP Cloud Storage
 ### Install GCP Cloud Storage library
 ```
