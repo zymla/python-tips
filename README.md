@@ -1,6 +1,6 @@
 # python-tips
 
-## PErformance
+## Performance
 ```
 pip install "pandas[performance]"
 ```
