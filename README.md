@@ -300,6 +300,13 @@ df['col_of_list'].explode()
 df.explode('col_of_list')
 ```
 
+## PyArrow & Pandas
+### Install PyArrow
+```
+pip install pyarrow
+```
+
+
 ## PySpark SQL vs Pandas
 | Pandas                                   | PySpark SQL                                     |
 | ---------------------------------------- | ----------------------------------------------- |
