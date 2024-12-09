@@ -304,6 +304,7 @@ df.explode('col_of_list')
 ### Install PyArrow
 ```
 pip install pyarrow
+pip install "pandas[pyarrow]"
 ```
 
 
