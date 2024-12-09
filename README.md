@@ -1,5 +1,10 @@
 # python-tips
 
+## PErformance
+```
+pip install "pandas[performance]"
+```
+
 ## Quick fixes
 ### Urllib SSL issues on MacOS:
 ```
